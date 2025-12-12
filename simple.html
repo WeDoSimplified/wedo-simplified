@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeDo - Travel Hub</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #667eea, #764ba2); min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .nav { background: white; padding: 20px; border-radius: 15px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: bold; color: #667eea; }
+        .nav-btn { padding: 10px 20px; margin: 0 5px; border: none; border-radius: 8px; cursor: pointer; background: #667eea; color: white; }
+        .nav-btn.active { background: #764ba2; }
+        .section { display: none; }
+        .section.active { display: block; }
+        .hero { text-align: center; color: white; margin: 40px 0; }
+        .hero h1 { font-size: 48px; margin-bottom: 20px; }
+        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 40px 0; }
+        .service-card { background: white; padding: 30px; border-radius: 15px; text-align: center; cursor: pointer; transition: transform 0.3s; }
+        .service-card:hover { transform: translateY(-5px); }
+        .service-icon { font-size: 48px; color: #667eea; margin-bottom: 20px; }
+        .search-box { background: white; padding: 30px; border-radius: 15px; margin: 30px 0; }
+        .search-input { width: 100%; padding: 15px; border: 2px solid #ddd; border-radius: 8px; margin: 10px 0; font-size: 16px; }
+        .search-btn { background: #667eea; color: white; padding: 15px 30px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+        .results { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 30px 0; }
+        .result-card { background: white; padding: 25px; border-radius: 15px; }
+        .result-name { font-size: 20px; font-weight: bold; margin-bottom: 10px; }
+        .result-price { color: #28a745; font-weight: bold; font-size: 18px; }
+        .contact-btn { background: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 5px; }
+        .form-section { background: white; padding: 40px; border-radius: 15px; margin: 30px 0; }
+        .form-input { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; margin: 10px 0; }
+        .form-btn { background: #667eea; color: white; padding: 15px 30px; border: none; border-radius: 8px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <div class="logo">🧭 WeDo Travel Hub</div>
+            <div>
+                <button class="nav-btn active" onclick="showSection('find')">Find Services</button>
+                <button class="nav-btn" onclick="showSection('list')">List Business</button>
+            </div>
+        </nav>
+
+        <!-- Find Services Section -->
+        <section id="findSection" class="section active">
+            <div class="hero">
+                <h1>Find Amazing Travel Services</h1>
+                <p>Connect with trusted providers for all your travel needs</p>
+            </div>
+
+            <div class="services">
+                <div class="service-card" onclick="selectCategory('cars')">
+                    <div class="service-icon">🚗</div>
+                    <h3>Vehicle Rentals</h3>
+                    <p>Cars • Bikes • Scooters</p>
+                </div>
+                <div class="service-card" onclick="selectCategory('hotels')">
+                    <div class="service-icon">🏨</div>
+                    <h3>Hotels</h3>
+                    <p>Luxury • Budget • Resorts</p>
+                </div>
+                <div class="service-card" onclick="selectCategory('services')">
+                    <div class="service-icon">🔧</div>
+                    <h3>Car Services</h3>
+                    <p>Wash • Repair • Maintenance</p>
+                </div>
+                <div class="service-card" onclick="selectCategory('travel')">
+                    <div class="service-icon">✈️</div>
+                    <h3>Travel Packages</h3>
+                    <p>Tours • Packages • Guides</p>
+                </div>
+            </div>
+
+            <div class="search-box">
+                <h3>Search Services</h3>
+                <input type="text" class="search-input" id="location" placeholder="Enter your location (e.g., Delhi, Mumbai)">
+                <button class="search-btn" onclick="searchServices()">🔍 Search Now</button>
+            </div>
+
+            <div id="results" class="results"></div>
+        </section>
+
+        <!-- List Business Section -->
+        <section id="listSection" class="section">
+            <div class="hero">
+                <h1>List Your Business</h1>
+                <p>Join thousands of successful service providers</p>
+            </div>
+
+            <div class="form-section">
+                <h2>Business Registration</h2>
+                <input type="text" class="form-input" placeholder="Business Name" id="businessName">
+                <input type="text" class="form-input" placeholder="Location" id="businessLocation">
+                <input type="number" class="form-input" placeholder="Starting Price (₹)" id="businessPrice">
+                <input type="tel" class="form-input" placeholder="Contact Number" id="businessContact">
+                <select class="form-input" id="businessCategory">
+                    <option value="">Select Category</option>
+                    <option value="cars">🚗 Vehicle Rentals</option>
+                    <option value="hotels">🏨 Hotels</option>
+                    <option value="services">🔧 Car Services</option>
+                    <option value="travel">✈️ Travel Packages</option>
+                </select>
+                <button class="form-btn" onclick="registerBusiness()">🚀 Register Business</button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const services = {
+            cars: [
+                {name: 'Delhi Premium Cars', location: 'Delhi', price: 2500, contact: '+91 98765 43210'},
+                {name: 'Mumbai Taxi Express', location: 'Mumbai', price: 1800, contact: '+91 87654 32109'},
+                {name: 'Bangalore Bike Rentals', location: 'Bangalore', price: 800, contact: '+91 76543 21098'}
+            ],
+            hotels: [
+                {name: 'Grand Palace Hotel', location: 'Delhi', price: 5500, contact: '+91 98765 11111'},
+                {name: 'Sea View Resort', location: 'Goa', price: 4200, contact: '+91 87654 22222'},
+                {name: 'Budget Inn Express', location: 'Mumbai', price: 1800, contact: '+91 76543 33333'}
+            ],
+            services: [
+                {name: 'AutoCare Pro', location: 'Delhi', price: 1200, contact: '+91 98765 66666'},
+                {name: 'Quick Wash Center', location: 'Mumbai', price: 400, contact: '+91 87654 77777'},
+                {name: 'Speedy Repairs', location: 'Bangalore', price: 800, contact: '+91 76543 88888'}
+            ],
+            travel: [
+                {name: 'Dream Destinations', location: 'Delhi to Goa', price: 25000, contact: '+91 98765 12345'},
+                {name: 'Adventure Seekers', location: 'Mumbai to Ladakh', price: 35000, contact: '+91 87654 23456'},
+                {name: 'Family Holidays', location: 'Bangalore to Kerala', price: 28000, contact: '+91 76543 34567'}
+            ]
+        };
+
+        let currentCategory = 'cars';
+
+        function showSection(section) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            
+            if (section === 'find') {
+                document.getElementById('findSection').classList.add('active');
+                event.target.classList.add('active');
+            } else {
+                document.getElementById('listSection').classList.add('active');
+                event.target.classList.add('active');
+            }
+        }
+
+        function selectCategory(category) {
+            currentCategory = category;
+            displayResults(services[category]);
+            
+            // Visual feedback
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.style.background = 'white';
+            });
+            event.target.closest('.service-card').style.background = '#f0f8ff';
+        }
+
+        function searchServices() {
+            const location = document.getElementById('location').value.toLowerCase();
+            let results = services[currentCategory];
+            
+            if (location) {
+                results = results.filter(service => 
+                    service.location.toLowerCase().includes(location) ||
+                    service.name.toLowerCase().includes(location)
+                );
+            }
+            
+            displayResults(results);
+        }
+
+        function displayResults(results) {
+            const container = document.getElementById('results');
+            
+            if (results.length === 0) {
+                container.innerHTML = '<div style="text-align: center; color: white; padding: 40px;"><h3>No services found</h3><p>Try a different location or category</p></div>';
+                return;
+            }
+            
+            container.innerHTML = results.map(service => `
+                <div class="result-card">
+                    <div class="result-name">${service.name}</div>
+                    <p>📍 ${service.location}</p>
+                    <div class="result-price">₹${service.price.toLocaleString()}</div>
+                    <div style="margin-top: 15px;">
+                        <button class="contact-btn" onclick="callService('${service.contact}', '${service.name}')">📞 Call</button>
+                        <button class="contact-btn" onclick="bookService('${service.name}')">📅 Book</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function callService(number, name) {
+            if (confirm(`Call ${name} at ${number}?`)) {
+                window.open(`tel:${number}`);
+            }
+        }
+
+        function bookService(name) {
+            alert(`Booking request sent for ${name}! They will contact you shortly.`);
+        }
+
+        function registerBusiness() {
+            const name = document.getElementById('businessName').value;
+            const location = document.getElementById('businessLocation').value;
+            const price = document.getElementById('businessPrice').value;
+            const contact = document.getElementById('businessContact').value;
+            const category = document.getElementById('businessCategory').value;
+            
+            if (!name || !location || !price || !contact || !category) {
+                alert('Please fill all fields');
+                return;
+            }
+            
+            // Add to services
+            services[category].push({
+                name: name,
+                location: location,
+                price: parseInt(price),
+                contact: contact
+            });
+            
+            alert('🎉 Business registered successfully! Your listing is now live.');
+            
+            // Clear form
+            document.querySelectorAll('.form-input').forEach(input => input.value = '');
+            
+            // Switch to find section
+            showSection('find');
+        }
+
+        // Initialize
+        displayResults(services[currentCategory]);
+    </script>
+</body>
+</html>
