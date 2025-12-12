@@ -15,9 +15,139 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('background_travel.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             min-height: 100vh;
             color: #333;
+        }
+        
+        #findSection {
+            min-height: 100vh;
+        }
+        
+        #listSection {
+            min-height: 100vh;
+        }
+        
+        #mentorshipSection {
+            min-height: 100vh;
+        }
+        
+        .mentors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .mentor-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mentor-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        
+        .mentor-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+        }
+        
+        .mentor-avatar {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .mentor-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .mentor-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+        
+        .mentor-title {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .mentor-guidance {
+            color: #4b5563;
+            line-height: 1.6;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+        
+        .mentor-expertise {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .expertise-tag {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .mentor-contact {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .contact-btn {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
         }
         
         .navbar {
@@ -658,6 +788,9 @@
                 <button id="listBtn" class="nav-btn">
                     <i class="fas fa-plus"></i> List Business
                 </button>
+                <button id="mentorshipBtn" class="nav-btn">
+                    <i class="fas fa-user-graduate"></i> Mentorship
+                </button>
             </div>
         </div>
     </nav>
@@ -799,11 +932,6 @@
             </div>
 
             <div class="list-business-form">
-                <div class="pricing-info">
-                    <div class="price">₹299</div>
-                    <p>6 months listing</p>
-                </div>
-
                 <form id="businessForm">
                     <div class="form-group">
                         <label for="businessName">Business Name *</label>
@@ -844,9 +972,79 @@
                     </div>
 
                     <button type="submit" class="submit-btn">
-                        <i class="fas fa-credit-card"></i> Pay ₹299 & List Business
+                        <i class="fas fa-plus"></i> Submit Business Listing
                     </button>
                 </form>
+            </div>
+        </section>
+
+        <!-- Mentorship Section -->
+        <section id="mentorshipSection" class="section">
+            <div class="hero">
+                <h1>Expert Mentorship</h1>
+                <p>Their guidance helped us build this comprehensive business listing platform for travelers</p>
+            </div>
+
+            <div class="mentors-grid">
+                <div class="mentor-card">
+                    <div class="mentor-avatar">
+                        <img src="a2.jpeg" alt="Ridhima Thakur">
+                    </div>
+                    <div class="mentor-name">Ridhima Thakur</div>
+                    <div class="mentor-title">Professor at FMS Delhi</div>
+                    <div class="mentor-guidance">
+                        "WeDo represents an excellent opportunity to bridge the gap between local businesses and travelers. As a listing platform, focus on building trust through verified reviews, ensuring mobile-first design, and creating value for both service providers and customers. The travel and automotive sectors have immense potential for digital transformation."
+                    </div>
+                    <div class="mentor-expertise">
+                        <span class="expertise-tag">Business Strategy</span>
+                        <span class="expertise-tag">Digital Marketing</span>
+                        <span class="expertise-tag">Platform Economics</span>
+                    </div>
+                </div>
+
+                <div class="mentor-card">
+                    <div class="mentor-avatar">
+                        <img src="a1.jpeg" alt="Subham Shukla">
+                    </div>
+                    <div class="mentor-name">Shubham Shukla</div>
+                    <div class="mentor-title">Product Manager at MNC</div>
+                    <div class="mentor-guidance">
+                        "For WeDo to succeed as a listing platform, prioritize user experience and data-driven decisions. Implement robust search algorithms, intuitive categorization, and seamless booking flows. Focus on building network effects - the more businesses list, the more valuable the platform becomes for users. Consider implementing AI-powered recommendations and dynamic pricing models."
+                    </div>
+                    <div class="mentor-expertise">
+                        <span class="expertise-tag">Product Strategy</span>
+                        <span class="expertise-tag">User Experience</span>
+                        <span class="expertise-tag">Platform Growth</span>
+                        <span class="expertise-tag">Analytics</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="search-section">
+                <h2 style="text-align: center; margin-bottom: 2rem; color: #1f2937; font-weight: 700;">Platform Development Insights</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div style="text-align: center; padding: 1.5rem;">
+                        <div style="font-size: 2.5rem; color: #667eea; margin-bottom: 1rem;">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 style="color: #1f2937; margin-bottom: 0.5rem;">Build Community</h3>
+                        <p style="color: #6b7280;">Focus on creating a strong community of service providers and customers</p>
+                    </div>
+                    <div style="text-align: center; padding: 1.5rem;">
+                        <div style="font-size: 2.5rem; color: #667eea; margin-bottom: 1rem;">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 style="color: #1f2937; margin-bottom: 0.5rem;">Mobile First</h3>
+                        <p style="color: #6b7280;">Ensure seamless mobile experience for on-the-go travelers</p>
+                    </div>
+                    <div style="text-align: center; padding: 1.5rem;">
+                        <div style="font-size: 2.5rem; color: #667eea; margin-bottom: 1rem;">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 style="color: #1f2937; margin-bottom: 0.5rem;">Data Driven</h3>
+                        <p style="color: #6b7280;">Use analytics to optimize user experience and business outcomes</p>
+                    </div>
+                </div>
             </div>
         </section>
     </div>

@@ -15,6 +15,7 @@ class BusinessDirectory {
                 { id: 3, name: "Bangalore Adventure Tours", category: "travel-agency", city: "bangalore", mobile: "+91 98765 43212", email: "info@bangaloreadventure.com", address: "MG Road, Bangalore - 560001", dateAdded: new Date().toISOString() },
                 { id: 4, name: "Pune Travel Express", category: "travel-agency", city: "pune", mobile: "+91 98765 43213", email: "contact@punetravel.com", address: "FC Road, Pune - 411005", dateAdded: new Date().toISOString() },
                 { id: 5, name: "Chennai Holiday Planners", category: "travel-agency", city: "chennai", mobile: "+91 98765 43214", email: "info@chennaiholidays.com", address: "T Nagar, Chennai - 600017", dateAdded: new Date().toISOString() },
+                { id: 31, name: "Noida Travel World", category: "travel-agency", city: "noida", mobile: "+91 98765 43240", email: "info@noidatravelworld.com", address: "Sector 18, Noida - 201301", dateAdded: new Date().toISOString() },
                 
                 // Hotels
                 { id: 6, name: "Grand Palace Hotel", category: "hotels", city: "mumbai", mobile: "+91 98765 43215", email: "booking@grandpalace.com", address: "Bandra West, Mumbai - 400050", dateAdded: new Date().toISOString() },
@@ -22,6 +23,7 @@ class BusinessDirectory {
                 { id: 8, name: "Bangalore Business Hotel", category: "hotels", city: "bangalore", mobile: "+91 98765 43217", email: "info@bangalorebusiness.com", address: "Whitefield, Bangalore - 560066", dateAdded: new Date().toISOString() },
                 { id: 9, name: "Pune Heritage Inn", category: "hotels", city: "pune", mobile: "+91 98765 43218", email: "stay@puneheritage.com", address: "Koregaon Park, Pune - 411001", dateAdded: new Date().toISOString() },
                 { id: 10, name: "Chennai Beach Resort", category: "hotels", city: "chennai", mobile: "+91 98765 43219", email: "booking@chennaibeach.com", address: "ECR Road, Chennai - 600041", dateAdded: new Date().toISOString() },
+                { id: 32, name: "Noida Business Inn", category: "hotels", city: "noida", mobile: "+91 98765 43241", email: "booking@noidabusinessinn.com", address: "Sector 62, Noida - 201309", dateAdded: new Date().toISOString() },
                 
                 // Car Wash
                 { id: 11, name: "SparkleClean Car Wash", category: "car-wash", city: "mumbai", mobile: "+91 98765 43220", email: "contact@sparklecarwash.com", address: "Andheri East, Mumbai - 400069", dateAdded: new Date().toISOString() },
@@ -29,6 +31,7 @@ class BusinessDirectory {
                 { id: 13, name: "Bangalore Car Care", category: "car-wash", city: "bangalore", mobile: "+91 98765 43222", email: "info@bangalorecarcare.com", address: "Indiranagar, Bangalore - 560038", dateAdded: new Date().toISOString() },
                 { id: 14, name: "Pune Wash Express", category: "car-wash", city: "pune", mobile: "+91 98765 43223", email: "contact@punewash.com", address: "Viman Nagar, Pune - 411014", dateAdded: new Date().toISOString() },
                 { id: 15, name: "Chennai Auto Clean", category: "car-wash", city: "chennai", mobile: "+91 98765 43224", email: "service@chennaiauto.com", address: "Velachery, Chennai - 600042", dateAdded: new Date().toISOString() },
+                { id: 33, name: "Noida Premium Wash", category: "car-wash", city: "noida", mobile: "+91 98765 43242", email: "service@noidapremiumwash.com", address: "Sector 15, Noida - 201301", dateAdded: new Date().toISOString() },
                 
                 // Car/Bike Dealers
                 { id: 16, name: "AutoMax Dealers", category: "car-bike-dealers", city: "mumbai", mobile: "+91 98765 43225", email: "sales@automax.com", address: "Goregaon West, Mumbai - 400062", dateAdded: new Date().toISOString() },
@@ -36,6 +39,7 @@ class BusinessDirectory {
                 { id: 18, name: "Bangalore Bike Hub", category: "car-bike-dealers", city: "bangalore", mobile: "+91 98765 43227", email: "sales@bangalorebike.com", address: "Jayanagar, Bangalore - 560011", dateAdded: new Date().toISOString() },
                 { id: 19, name: "Pune Auto Gallery", category: "car-bike-dealers", city: "pune", mobile: "+91 98765 43228", email: "contact@puneauto.com", address: "Hadapsar, Pune - 411028", dateAdded: new Date().toISOString() },
                 { id: 20, name: "Chennai Vehicle Center", category: "car-bike-dealers", city: "chennai", mobile: "+91 98765 43229", email: "info@chennaivehicle.com", address: "Porur, Chennai - 600116", dateAdded: new Date().toISOString() },
+                { id: 34, name: "Noida Auto Hub", category: "car-bike-dealers", city: "noida", mobile: "+91 98765 43243", email: "sales@noidaautohub.com", address: "Sector 63, Noida - 201301", dateAdded: new Date().toISOString() },
                 
                 // Car Workshops
                 { id: 21, name: "Expert Car Workshop", category: "car-workshops", city: "mumbai", mobile: "+91 98765 43230", email: "service@expertcarworkshop.com", address: "Malad West, Mumbai - 400064", dateAdded: new Date().toISOString() },
@@ -43,13 +47,15 @@ class BusinessDirectory {
                 { id: 23, name: "Bangalore Auto Repair", category: "car-workshops", city: "bangalore", mobile: "+91 98765 43232", email: "workshop@bangalorerepair.com", address: "Koramangala, Bangalore - 560034", dateAdded: new Date().toISOString() },
                 { id: 24, name: "Pune Garage Pro", category: "car-workshops", city: "pune", mobile: "+91 98765 43233", email: "service@punegaragepro.com", address: "Wakad, Pune - 411057", dateAdded: new Date().toISOString() },
                 { id: 25, name: "Chennai Fix It", category: "car-workshops", city: "chennai", mobile: "+91 98765 43234", email: "repair@chennaifix.com", address: "Adyar, Chennai - 600020", dateAdded: new Date().toISOString() },
+                { id: 35, name: "Noida Service Center", category: "car-workshops", city: "noida", mobile: "+91 98765 43244", email: "repair@noidaservicecenter.com", address: "Sector 16, Noida - 201301", dateAdded: new Date().toISOString() },
                 
                 // Rental Agencies
                 { id: 26, name: "DriveEasy Rentals", category: "rental-agencies", city: "mumbai", mobile: "+91 98765 43235", email: "rent@driveeasy.com", address: "Powai, Mumbai - 400076", dateAdded: new Date().toISOString() },
                 { id: 27, name: "Delhi Self Drive", category: "rental-agencies", city: "delhi", mobile: "+91 98765 43236", email: "booking@delhiselfdrive.com", address: "Dwarka, New Delhi - 110075", dateAdded: new Date().toISOString() },
                 { id: 28, name: "Bangalore Rent A Car", category: "rental-agencies", city: "bangalore", mobile: "+91 98765 43237", email: "info@bangalorerent.com", address: "Electronic City, Bangalore - 560100", dateAdded: new Date().toISOString() },
                 { id: 29, name: "Pune Drive Zone", category: "rental-agencies", city: "pune", mobile: "+91 98765 43238", email: "contact@punedrive.com", address: "Baner, Pune - 411045", dateAdded: new Date().toISOString() },
-                { id: 30, name: "Chennai Wheels", category: "rental-agencies", city: "chennai", mobile: "+91 98765 43239", email: "rent@chennaiwheels.com", address: "OMR Road, Chennai - 600097", dateAdded: new Date().toISOString() }
+                { id: 30, name: "Chennai Wheels", category: "rental-agencies", city: "chennai", mobile: "+91 98765 43239", email: "rent@chennaiwheels.com", address: "OMR Road, Chennai - 600097", dateAdded: new Date().toISOString() },
+                { id: 36, name: "Noida Drive Solutions", category: "rental-agencies", city: "noida", mobile: "+91 98765 43245", email: "rent@noidadrivesolutions.com", address: "Sector 37, Noida - 201303", dateAdded: new Date().toISOString() }
             ];
             this.saveBusinesses(defaultBusinesses);
         }
@@ -109,15 +115,28 @@ const directory = new BusinessDirectory();
 document.getElementById('findBtn').addEventListener('click', () => {
     document.getElementById('findSection').classList.add('active');
     document.getElementById('listSection').classList.remove('active');
+    document.getElementById('mentorshipSection').classList.remove('active');
     document.getElementById('findBtn').classList.add('active');
     document.getElementById('listBtn').classList.remove('active');
+    document.getElementById('mentorshipBtn').classList.remove('active');
 });
 
 document.getElementById('listBtn').addEventListener('click', () => {
     document.getElementById('listSection').classList.add('active');
     document.getElementById('findSection').classList.remove('active');
+    document.getElementById('mentorshipSection').classList.remove('active');
     document.getElementById('listBtn').classList.add('active');
     document.getElementById('findBtn').classList.remove('active');
+    document.getElementById('mentorshipBtn').classList.remove('active');
+});
+
+document.getElementById('mentorshipBtn').addEventListener('click', () => {
+    document.getElementById('mentorshipSection').classList.add('active');
+    document.getElementById('findSection').classList.remove('active');
+    document.getElementById('listSection').classList.remove('active');
+    document.getElementById('mentorshipBtn').classList.add('active');
+    document.getElementById('findBtn').classList.remove('active');
+    document.getElementById('listBtn').classList.remove('active');
 });
 
 // Search functionality
@@ -150,10 +169,7 @@ function displayResults(results) {
             <div class="business-name">${business.name}</div>
             <div class="business-category">${categoryNames[business.category]} • ${business.city.charAt(0).toUpperCase() + business.city.slice(1)}</div>
             <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <span>${business.mobile}</span>
-                </div>
+
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
                     <span>${business.email}</span>
@@ -197,7 +213,7 @@ document.getElementById('businessForm').addEventListener('submit', (e) => {
     };
     
     // Show admin approval message instead of adding directly
-    alert(`Thank you! Your business listing request for "${formData.name}" has been submitted. Payment of ₹299 processed successfully. Our admin will review and approve your listing within 24-48 hours.`);
+    alert(`Thank you! Your business listing request for "${formData.name}" has been submitted successfully. Our admin will review and approve your listing within 24-48 hours.`);
     
     // Reset form
     document.getElementById('businessForm').reset();
