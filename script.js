@@ -199,9 +199,17 @@ document.querySelectorAll('.category-card').forEach(card => {
     });
 });
 
+// Google Sheets Web App URL (replace with your actual URL)
+const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbysD9s7IGptOYIu9T43hxTVi5xRazPVFAWR3S8m0uVAusbkHvl2wsIAIaIysxHMtcszNQ/exec';
+
 // Business form submission
-document.getElementById('businessForm').addEventListener('submit', (e) => {
+document.getElementById('businessForm').addEventListener('submit', async (e) => {
     e.preventDefault();
+    
+    const submitBtn = document.querySelector('.submit-btn');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+    submitBtn.disabled = true;
     
     const formData = {
         name: document.getElementById('businessName').value,
@@ -209,15 +217,52 @@ document.getElementById('businessForm').addEventListener('submit', (e) => {
         mobile: document.getElementById('mobile').value,
         email: document.getElementById('email').value,
         address: document.getElementById('address').value,
-        city: document.getElementById('city').value.toLowerCase()
+        city: document.getElementById('city').value,
+        timestamp: new Date().toISOString()
     };
     
-    // Show admin approval message instead of adding directly
-    alert(`Thank you! Your business listing request for "${formData.name}" has been submitted successfully. Our admin will review and approve your listing within 24-48 hours.`);
-    
-    // Reset form
-    document.getElementById('businessForm').reset();
+    try {
+        console.log('Sending data to Google Sheets:', formData);
+        console.log('URL:', GOOGLE_SHEETS_URL);
+        
+        const response = await fetch(GOOGLE_SHEETS_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams(formData)
+        });
+        
+        console.log('Response received:', response);
+        alert(`Thank you! Business "${formData.name}" submitted successfully. Admin will review within 24-48 hours.`);
+        document.getElementById('businessForm').reset();
+        
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error submitting. Please try again. Check console for details.');
+    } finally {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+    }
 });
+
+
 
 // Initial load - show all businesses
 displayResults(directory.getBusinesses());
+
+// Admin function to export current businesses
+function exportCurrentBusinesses() {
+    const businesses = directory.getBusinesses();
+    const dataStr = JSON.stringify(businesses, null, 2);
+    const dataBlob = new Blob([dataStr], {type: 'application/json'});
+    const url = URL.createObjectURL(dataBlob);
+    
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'current-businesses.json';
+    link.click();
+}
+
+console.log('WeDo Business Directory loaded.');
+console.log('Admin: Use exportCurrentBusinesses() to download current business data.');
