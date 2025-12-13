@@ -55,7 +55,8 @@ class BusinessDirectory {
                 { id: 28, name: "Bangalore Rent A Car", category: "rental-agencies", city: "bangalore", mobile: "+91 98765 43237", email: "info@bangalorerent.com", address: "Electronic City, Bangalore - 560100", dateAdded: new Date().toISOString() },
                 { id: 29, name: "Pune Drive Zone", category: "rental-agencies", city: "pune", mobile: "+91 98765 43238", email: "contact@punedrive.com", address: "Baner, Pune - 411045", dateAdded: new Date().toISOString() },
                 { id: 30, name: "Chennai Wheels", category: "rental-agencies", city: "chennai", mobile: "+91 98765 43239", email: "rent@chennaiwheels.com", address: "OMR Road, Chennai - 600097", dateAdded: new Date().toISOString() },
-                { id: 36, name: "Noida Drive Solutions", category: "rental-agencies", city: "noida", mobile: "+91 98765 43245", email: "rent@noidadrivesolutions.com", address: "Sector 37, Noida - 201303", dateAdded: new Date().toISOString() }
+                { id: 36, name: "Noida Drive Solutions", category: "rental-agencies", city: "noida", mobile: "+91 98765 43245", email: "rent@noidadrivesolutions.com", address: "Sector 37, Noida - 201303", dateAdded: new Date().toISOString() },
+                { id: 37, name: "JS Travels", category: "rental-agencies", city: "Greater Noida", mobile: "+91 98765 43234", email: "jsTravels123@gmail.com", address: "Jewar, Noida", dateAdded: new Date().toISOString()}
             ];
             this.saveBusinesses(defaultBusinesses);
         }
@@ -107,6 +108,22 @@ const categoryNames = {
     'car-workshops': 'Car Workshop',
     'rental-agencies': 'Rental Agency'
 };
+
+// Utility: title-case a string (capitalize first letter of each word)
+function titleCase(s) {
+    if (!s) return '';
+    // Normalize, trim and collapse spaces
+    let str = s.toString().normalize('NFKC').trim().replace(/\s+/g, ' ');
+    // Title-case each token, preserving hyphens/apostrophes
+    return str.split(' ').map(token => {
+        // split on hyphen or apostrophe but keep the separators
+        return token.split(/([-'])/).map(part => {
+            if (part === '-' || part === "'") return part;
+            if (!part) return '';
+            return part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
+        }).join('');
+    }).join(' ');
+}
 
 // Initialize directory
 const directory = new BusinessDirectory();
@@ -166,8 +183,8 @@ function displayResults(results) {
     
     container.innerHTML = results.map(business => `
         <div class="business-card">
-            <div class="business-name">${business.name}</div>
-            <div class="business-category">${categoryNames[business.category]} • ${business.city.charAt(0).toUpperCase() + business.city.slice(1)}</div>
+            <div class="business-name">${titleCase(business.name)}</div>
+            <div class="business-category">${categoryNames[business.category]} • ${titleCase(business.city)}</div>
             <div class="contact-info">
 
                 <div class="contact-item">
@@ -205,12 +222,12 @@ const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbysD9s7IGptOY
 // Business form submission
 document.getElementById('businessForm').addEventListener('submit', async (e) => {
     e.preventDefault();
-    
-    const submitBtn = document.querySelector('.submit-btn');
+
+    const submitBtn = document.getElementById('submitBtn') || document.querySelector('.submit-btn');
     const originalText = submitBtn.innerHTML;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
     submitBtn.disabled = true;
-    
+
     const formData = {
         name: document.getElementById('businessName').value,
         category: document.getElementById('businessCategory').value,
@@ -220,11 +237,13 @@ document.getElementById('businessForm').addEventListener('submit', async (e) => 
         city: document.getElementById('city').value,
         timestamp: new Date().toISOString()
     };
-    
+
+    // Normalize name and city before sending so sheet shows proper capitalization
+    formData.name = titleCase(formData.name);
+    formData.city = titleCase(formData.city);
+
     try {
-        console.log('Sending data to Google Sheets:', formData);
-        console.log('URL:', GOOGLE_SHEETS_URL);
-        
+        // Send to Google Sheets
         const response = await fetch(GOOGLE_SHEETS_URL, {
             method: 'POST',
             headers: {
@@ -232,19 +251,98 @@ document.getElementById('businessForm').addEventListener('submit', async (e) => 
             },
             body: new URLSearchParams(formData)
         });
-        
-        console.log('Response received:', response);
-        alert(`Thank you! Business "${formData.name}" submitted successfully. Admin will review within 24-48 hours.`);
-        document.getElementById('businessForm').reset();
-        
+
+    // Show inline success message and reset form
+    showFormMessage(`Thanks — "${formData.name}" submitted. Admin will review within 24-48 hours.`);
+    document.getElementById('businessForm').reset();
+    updatePreview();
+
     } catch (error) {
-        console.error('Error:', error);
-        alert('Error submitting. Please try again. Check console for details.');
+    console.error('Error submitting to Google Sheets:', error);
+    showFormMessage('Error submitting. Please try again later.', 'error');
     } finally {
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
     }
 });
+
+// Live preview updates
+function updatePreview() {
+    const name = document.getElementById('businessName').value || 'Business Name';
+    const category = document.getElementById('businessCategory').value || '';
+    const mobile = document.getElementById('mobile').value.trim();
+    const email = document.getElementById('email').value || 'info@example.com';
+    const address = document.getElementById('address').value || 'Full address will appear here';
+    const city = document.getElementById('city').value || '';
+
+    // Use the shared, robust titleCase helper (handles mixed-case, hyphens, apostrophes)
+    document.getElementById('previewName').textContent = titleCase(name);
+    document.getElementById('previewCategory').textContent = `${category ? categoryNames[category] : 'Category'}${city ? ' • ' + titleCase(city) : ''}`;
+    const previewMobileEl = document.getElementById('previewMobile');
+    if (mobile) {
+        previewMobileEl.style.display = '';
+        previewMobileEl.innerHTML = `<i class="fas fa-phone" style="color:#667eea; margin-right:0.5rem;"></i> ${mobile}`;
+    } else {
+        // hide the mobile row when empty to avoid showing a default number
+        previewMobileEl.style.display = 'none';
+    }
+    document.getElementById('previewEmail').innerHTML = `<i class="fas fa-envelope" style="color:#667eea; margin-right:0.5rem;"></i> ${email}`;
+    document.getElementById('previewAddress').textContent = address;
+
+    // Update avatar initials
+    const avatar = document.getElementById('previewAvatar');
+    const tcName = titleCase(name);
+    const initials = tcName.split(' ').filter(Boolean).slice(0,2).map(s => s.charAt(0).toUpperCase()).join('') || 'WA';
+    avatar.textContent = initials;
+
+    // Basic form validity: enable submit only if required fields are present
+    const submitBtn = document.getElementById('submitBtn');
+    if (submitBtn) {
+        const nameVal = document.getElementById('businessName').value.trim();
+        const catVal = document.getElementById('businessCategory').value.trim();
+        const mobileVal = document.getElementById('mobile').value.trim();
+        const emailVal = document.getElementById('email').value.trim();
+        const addrVal = document.getElementById('address').value.trim();
+        const cityVal = document.getElementById('city').value.trim();
+        const isValid = nameVal && catVal && mobileVal && emailVal && addrVal && cityVal;
+        submitBtn.disabled = !isValid;
+    }
+}
+
+['businessName','businessCategory','mobile','email','address','city'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', updatePreview);
+});
+
+// Clear form button
+const clearBtn = document.getElementById('clearForm');
+if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+        document.getElementById('businessForm').reset();
+        updatePreview();
+    });
+}
+
+// Small helper to show a message in the form area
+function showFormMessage(message, type='success'){
+    const el = document.getElementById('formMessage');
+    if (!el) return;
+    el.textContent = message;
+    el.style.display = 'block';
+    if (type === 'error') {
+        el.style.background = 'linear-gradient(90deg,#fff1f2,#fee2e2)';
+        el.style.color = '#661010';
+        el.style.borderColor = 'rgba(102,16,16,0.08)';
+    } else {
+        el.style.background = 'linear-gradient(90deg,#ecfdf5,#d1fae5)';
+        el.style.color = '#065f46';
+        el.style.borderColor = 'rgba(6,95,70,0.08)';
+    }
+    setTimeout(()=>{ el.style.display = 'none'; }, 4500);
+}
+
+// initialize preview immediately
+updatePreview();
 
 
 

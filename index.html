@@ -265,6 +265,180 @@
             margin-bottom: 4rem;
             border: 1px solid rgba(255,255,255,0.2);
         }
+
+        /* List business form styles */
+        .list-business-form {
+            max-width: 1100px;
+            margin: 0 auto 4rem;
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        /* Card-like form */
+        .form-panel {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(16,24,40,0.08);
+            border: 1px solid rgba(15,23,42,0.06);
+        }
+
+        /* Sticky preview with subtle depth */
+        .preview-panel {
+            position: sticky;
+            top: 100px;
+            background: linear-gradient(180deg,#ffffff,#fbfbff);
+            padding: 1.25rem;
+            border-radius: 14px;
+            box-shadow: 0 12px 40px rgba(16,24,40,0.06);
+            border: 1px solid rgba(15,23,42,0.04);
+        }
+
+        /* Small success/toast message */
+        #formMessage {
+            display: none;
+            margin-top: 1rem;
+            padding: 0.85rem 1rem;
+            border-radius: 10px;
+            background: linear-gradient(90deg,#ecfdf5,#d1fae5);
+            color: #065f46;
+            border: 1px solid rgba(6,95,70,0.08);
+            font-weight: 600;
+        }
+
+        /* Secondary button */
+        .btn-secondary {
+            background: #f3f4f6;
+            color: #111827;
+            box-shadow: none;
+            border: 1px solid rgba(15,23,42,0.04);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="tel"],
+        .form-group input[type="email"],
+        .form-group select,
+        .form-group textarea {
+            padding: 0.85rem 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(15,23,42,0.08);
+            font-size: 1rem;
+            background: #fff;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+        }
+
+        .form-group textarea { min-height: 100px; resize: vertical; }
+
+        .form-group input::placeholder, .form-group textarea::placeholder {
+            color: #9ca3af;
+            font-weight: 500;
+        }
+
+        .submit-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.9rem 1.25rem;
+            border-radius: 12px;
+            border: none;
+            background: linear-gradient(90deg,#667eea,#764ba2);
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(102,126,234,0.18);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(102,126,234,0.22); }
+
+        .submit-row { display:flex; gap:1rem; align-items:center; margin-top:0.4rem; }
+
+        /* Preview card */
+        .preview-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            border-radius: 10px;
+            padding: 0.85rem;
+            background: linear-gradient(180deg, #ffffff, #fbfcff);
+            border: 1px solid rgba(15,23,42,0.03);
+        }
+
+        .preview-top {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .preview-avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 12px;
+            background: linear-gradient(135deg,#667eea,#764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 800;
+            font-size: 1.25rem;
+            box-shadow: 0 8px 20px rgba(102,126,234,0.12);
+        }
+
+        /* Preview card */
+        .preview-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .preview-top {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .preview-avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 12px;
+            background: linear-gradient(135deg,#667eea,#764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+
+        .preview-name {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #111827;
+        }
+
+        .preview-meta { color: #6b7280; font-weight: 600; font-size: 0.95rem; }
+
+        .preview-contact { font-size: 0.95rem; color: #374151; }
+
+        @media (max-width: 900px) {
+            .list-business-form { grid-template-columns: 1fr; }
+            .preview-panel { position: static; margin-top: 1rem; }
+        }
         
         .search-form {
             display: flex;
@@ -892,6 +1066,49 @@
             color: #6b7280;
             font-weight: 500;
         }
+        /* === Layout overrides: ensure List Business section aligns cleanly === */
+        .list-business-form {
+            display: grid !important;
+            grid-template-columns: 1fr 380px;
+            gap: 2rem;
+            align-items: start;
+            max-width: 1100px;
+            margin: 0 auto 4rem;
+            padding: 0;
+            background: transparent;
+        }
+
+        /* Form card */
+        .list-business-form .form-panel {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 14px;
+            box-shadow: 0 12px 40px rgba(16,24,40,0.06);
+            border: 1px solid rgba(15,23,42,0.04);
+            width: 100%;
+        }
+
+        /* Preview stays sticky and aligned */
+        .list-business-form .preview-panel {
+            position: sticky;
+            top: 100px;
+            align-self: start;
+            width: 100%;
+        }
+
+        /* Ensure submit buttons are inline and not full-width */
+        .list-business-form .submit-row .submit-btn {
+            width: auto !important;
+            padding: 0.9rem 1.25rem !important;
+        }
+
+        /* Mobile: stack and add spacing */
+        @media (max-width: 900px) {
+            .list-business-form { grid-template-columns: 1fr; padding: 1rem; }
+            .list-business-form .preview-panel { position: static; margin-top: 1rem; }
+            .list-business-form .form-panel { padding: 1.25rem; }
+            .list-business-form .submit-row { flex-direction: row; }
+        }
     </style>
 </head>
 <body>
@@ -1070,62 +1287,93 @@
             </div>
         </section>
 
-        <!-- List Business Section -->
-        <section id="listSection" class="section">
+    <!-- List Business Section -->
+    <section id="listSection" class="section">
             <div class="hero">
                 <h1>List Your Business</h1>
                 <p>Get discovered by thousands of customers in your city</p>
             </div>
 
-            <div class="list-business-form">
-                <form id="businessForm">
-                    <div class="form-group">
-                        <label for="businessName">Business Name *</label>
-                        <input type="text" id="businessName" required>
+            <div class="container">
+                <div class="list-business-form">
+                    <div class="form-panel">
+                            <form id="businessForm" novalidate aria-labelledby="list-your-business">
+                            <div class="form-group">
+                                <label for="businessName">Business Name *</label>
+                                <input type="text" id="businessName" required placeholder="e.g. Taj Express Travels" aria-required="true">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="businessCategory">Category *</label>
+                                <select id="businessCategory" required aria-required="true">
+                                    <option value="">Select Category</option>
+                                    <option value="travel-agency">Travel Agency</option>
+                                    <option value="hotels">Hotel/Stay</option>
+                                    <option value="car-wash">Car Wash</option>
+                                    <option value="car-bike-dealers">Car/Bike Dealer</option>
+                                    <option value="car-workshops">Car Workshop</option>
+                                    <option value="rental-agencies">Rental Agency</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="mobile">Mobile Number *</label>
+                                <input type="tel" id="mobile" required placeholder="+91 98xxxx xxxxx">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" required placeholder="contact@example.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address">Full Address *</label>
+                                <textarea id="address" required placeholder="Street, Area, Landmark, PIN"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="city">City *</label>
+                                <input type="text" id="city" required placeholder="e.g. Mumbai">
+                            </div>
+
+                            <div class="submit-row">
+                                <button type="submit" class="submit-btn" id="submitBtn">
+                                    <i class="fas fa-plus"></i> Submit Business Listing
+                                </button>
+                                <button type="button" id="clearForm" class="submit-btn btn-secondary" style="font-weight:700;">
+                                    <i class="fas fa-eraser"></i> Clear
+                                </button>
+                            </div>
+
+                            <div style="margin-top: 1rem; padding: 1rem; background: rgba(102, 126, 234, 0.06); border-radius: 12px; font-size: 0.9rem; color: #374151;">
+                                <i class="fas fa-info-circle" style="color: #667eea; margin-right: 0.5rem;"></i>
+                                Your submission will be reviewed by our admin team within 24-48 hours before being added to the directory.
+                            </div>
+
+                            <div id="formMessage" role="status" aria-live="polite"></div>
+                            </form>
                     </div>
 
-                    <div class="form-group">
-                        <label for="businessCategory">Category *</label>
-                        <select id="businessCategory" required>
-                            <option value="">Select Category</option>
-                            <option value="travel-agency">Travel Agency</option>
-                            <option value="hotels">Hotel/Stay</option>
-                            <option value="car-wash">Car Wash</option>
-                            <option value="car-bike-dealers">Car/Bike Dealer</option>
-                            <option value="car-workshops">Car Workshop</option>
-                            <option value="rental-agencies">Rental Agency</option>
-                        </select>
-                    </div>
+                    <aside class="preview-panel">
+                        <div style="font-weight:700; color:#111827; margin-bottom:0.5rem;">Live Preview</div>
+                        <div class="preview-card" id="previewCard">
+                            <div class="preview-top">
+                                <div class="preview-avatar" id="previewAvatar">WA</div>
+                                <div>
+                                    <div class="preview-name" id="previewName">Business Name</div>
+                                    <div class="preview-meta" id="previewCategory">Category • City</div>
+                                </div>
+                            </div>
 
-                    <div class="form-group">
-                        <label for="mobile">Mobile Number *</label>
-                        <input type="tel" id="mobile" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="address">Full Address *</label>
-                        <textarea id="address" required></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="city">City *</label>
-                        <input type="text" id="city" required>
-                    </div>
-
-                    <button type="submit" class="submit-btn">
-                        <i class="fas fa-plus"></i> Submit Business Listing
-                    </button>
-                    
-                    <div style="margin-top: 1rem; padding: 1rem; background: rgba(102, 126, 234, 0.1); border-radius: 12px; font-size: 0.9rem; color: #4b5563;">
-                        <i class="fas fa-info-circle" style="color: #667eea; margin-right: 0.5rem;"></i>
-                        Your submission will be reviewed by our admin team within 24-48 hours before being added to the directory.
-                    </div>
-                </form>
+                            <div class="preview-contact" id="previewContact">
+                                <div id="previewMobile"><i class="fas fa-phone" style="color:#667eea; margin-right:0.5rem;"></i> +91 98765 43210</div>
+                                <div id="previewEmail"><i class="fas fa-envelope" style="color:#667eea; margin-right:0.5rem;"></i> info@example.com</div>
+                                <div id="previewAddress" style="color:#6b7280; font-size:0.95rem; margin-top:0.5rem;">Full address will appear here</div>
+                            </div>
+                        </div>
+                        <div style="margin-top:1rem; font-size:0.9rem; color:#6b7280;">Tip: Add a clear business name, city and contact for higher visibility.</div>
+                    </aside>
+                </div>
             </div>
         </section>
 
