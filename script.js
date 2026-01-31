@@ -56,7 +56,34 @@ class BusinessDirectory {
 { id: 29, name: "Pune Drive Zone", category: "rental-agencies", city: "pune", mobile: "+91 98765 43238", email: "punedrivezone@gmail.com", address: "Baner, Pune - 411045", dateAdded: new Date().toISOString() },
 { id: 30, name: "Chennai Wheels", category: "rental-agencies", city: "chennai", mobile: "+91 98765 43239", email: "chennaiwheels@yahoo.com", address: "OMR Road, Chennai - 600097", dateAdded: new Date().toISOString() },
 { id: 36, name: "Noida Drive Solutions", category: "rental-agencies", city: "noida", mobile: "+91 98765 43245", email: "noidadrivesolutions@gmail.com", address: "Sector 37, Noida - 201303", dateAdded: new Date().toISOString() },
-{ id: 37, name: "JS Travels", category: "rental-agencies", city: "Greater Noida", mobile: "+91 98765 43234", email: "jstravels.greaternoida@gmail.com", address: "Jewar, Noida", dateAdded: new Date().toISOString() }
+{ id: 37, name: "JS Travels", category: "rental-agencies", city: "Greater Noida", mobile: "+91 98765 43234", email: "jstravels.greaternoida@gmail.com", address: "Jewar, Noida", dateAdded: new Date().toISOString() },
+
+// Grocery Stores
+// Noida Stores
+{ id: 38, name: "Fresh Mart Grocery", category: "grocery-stores", city: "noida", locality: "sector-18", state: "uttar-pradesh", mobile: "+91 98234 56789", address: "Shop 12, Atta Market, Sector 18, Noida - 201301", products: ["Grocery", "Vegetables", "Dairy"], dateAdded: new Date().toISOString() },
+{ id: 39, name: "Sector 18 Kirana", category: "grocery-stores", city: "noida", locality: "sector-18", state: "uttar-pradesh", mobile: "+91 99876 54321", address: "A-15, DLF Mall Road, Sector 18, Noida - 201301", products: ["Grocery", "Stationary", "Snacks"], dateAdded: new Date().toISOString() },
+{ id: 40, name: "Daily Needs Store", category: "grocery-stores", city: "noida", locality: "sector-62", state: "uttar-pradesh", mobile: "+91 97123 45678", address: "H-Block Market, Sector 62, Noida - 201309", products: ["Grocery", "Household Items", "Personal Care"], dateAdded: new Date().toISOString() },
+{ id: 41, name: "Sector 62 Supermart", category: "grocery-stores", city: "noida", locality: "sector-62", state: "uttar-pradesh", mobile: "+91 96789 01234", address: "Shop 25, Electronic City Metro, Sector 62, Noida - 201309", products: ["Grocery", "Electronics", "Medicines"], dateAdded: new Date().toISOString() },
+{ id: 42, name: "Quick Shop 15", category: "grocery-stores", city: "noida", locality: "sector-15", state: "uttar-pradesh", mobile: "+91 95456 78901", address: "C-Block Market, Sector 15, Noida - 201301", products: ["Grocery", "Fruits", "Bakery"], dateAdded: new Date().toISOString() },
+{ id: 43, name: "Sector 15 General Store", category: "grocery-stores", city: "noida", locality: "sector-15", state: "uttar-pradesh", mobile: "+91 94321 09876", address: "Shop 8, Main Market, Sector 15, Noida - 201301", products: ["Grocery", "Stationary", "Toys"], dateAdded: new Date().toISOString() },
+
+// Jaipur Stores
+{ id: 44, name: "C Scheme Mart", category: "grocery-stores", city: "jaipur", locality: "c-scheme", state: "rajasthan", mobile: "+91 93567 89012", address: "Shop 45, C Scheme Market, Jaipur - 302001", products: ["Grocery", "Spices", "Sweets"], dateAdded: new Date().toISOString() },
+{ id: 45, name: "Rajasthan Kirana", category: "grocery-stores", city: "jaipur", locality: "c-scheme", state: "rajasthan", mobile: "+91 92890 12345", address: "B-12, Ashok Marg, C Scheme, Jaipur - 302001", products: ["Grocery", "Traditional Items", "Dairy"], dateAdded: new Date().toISOString() },
+{ id: 46, name: "Malviya Nagar Store", category: "grocery-stores", city: "jaipur", locality: "malviya-nagar", state: "rajasthan", mobile: "+91 91234 56789", address: "Shop 22, Malviya Nagar Market, Jaipur - 302017", products: ["Grocery", "Vegetables", "Household Items"], dateAdded: new Date().toISOString() },
+{ id: 47, name: "Pink City Grocery", category: "grocery-stores", city: "jaipur", locality: "malviya-nagar", state: "rajasthan", mobile: "+91 90678 90123", address: "A-5, JLN Marg, Malviya Nagar, Jaipur - 302017", products: ["Grocery", "Organic Products", "Snacks"], dateAdded: new Date().toISOString() },
+
+// Raipur Stores
+{ id: 48, name: "Pandri Fresh Mart", category: "grocery-stores", city: "raipur", locality: "pandri", state: "chhattisgarh", mobile: "+91 89012 34567", address: "Shop 18, Pandri Main Road, Raipur - 492001", products: ["Grocery", "Local Products", "Dairy"], dateAdded: new Date().toISOString() },
+{ id: 49, name: "CG Kirana Store", category: "grocery-stores", city: "raipur", locality: "pandri", state: "chhattisgarh", mobile: "+91 88345 67890", address: "Near Pandri Station, Pandri, Raipur - 492001", products: ["Grocery", "Stationary", "Medicines"], dateAdded: new Date().toISOString() },
+{ id: 50, name: "Shankar Nagar Mart", category: "grocery-stores", city: "raipur", locality: "shankar-nagar", state: "chhattisgarh", mobile: "+91 87678 90123", address: "Block C, Shankar Nagar, Raipur - 492007", products: ["Grocery", "Electronics", "Personal Care"], dateAdded: new Date().toISOString() },
+{ id: 51, name: "Raipur General Store", category: "grocery-stores", city: "raipur", locality: "shankar-nagar", state: "chhattisgarh", mobile: "+91 86901 23456", address: "Shop 12, Shankar Nagar Market, Raipur - 492007", products: ["Grocery", "Household Items", "Toys"], dateAdded: new Date().toISOString() },
+
+// Delhi Stores
+{ id: 52, name: "CP Central Store", category: "grocery-stores", city: "delhi", locality: "connaught-place", state: "delhi", mobile: "+91 85234 56789", address: "Block A, Connaught Place, New Delhi - 110001", products: ["Grocery", "Imported Items", "Beverages"], dateAdded: new Date().toISOString() },
+{ id: 53, name: "Delhi Kirana", category: "grocery-stores", city: "delhi", locality: "connaught-place", state: "delhi", mobile: "+91 84567 89012", address: "Shop 15, Janpath Market, CP, New Delhi - 110001", products: ["Grocery", "Stationary", "Snacks"], dateAdded: new Date().toISOString() },
+{ id: 54, name: "Karol Bagh Mart", category: "grocery-stores", city: "delhi", locality: "karol-bagh", state: "delhi", mobile: "+91 83890 12345", address: "Shop 28, Karol Bagh Market, New Delhi - 110005", products: ["Grocery", "Textiles", "Electronics"], dateAdded: new Date().toISOString() },
+{ id: 55, name: "KB General Store", category: "grocery-stores", city: "delhi", locality: "karol-bagh", state: "delhi", mobile: "+91 82123 45678", address: "A-45, Ajmal Khan Road, Karol Bagh, New Delhi - 110005", products: ["Grocery", "Personal Care", "Medicines"], dateAdded: new Date().toISOString() }
 
 
             ];
@@ -108,7 +135,8 @@ const categoryNames = {
     'car-wash': 'Car Wash',
     'car-bike-dealers': 'Car/Bike Dealer',
     'car-workshops': 'Car Workshop',
-    'rental-agencies': 'Rental Agency'
+    'rental-agencies': 'Rental Agency',
+    'grocery-stores': 'Grocery Store'
 };
 
 // Utility: title-case a string (capitalize first letter of each word)
@@ -135,27 +163,46 @@ document.getElementById('findBtn').addEventListener('click', () => {
     document.getElementById('findSection').classList.add('active');
     document.getElementById('listSection').classList.remove('active');
     document.getElementById('mentorshipSection').classList.remove('active');
+    document.getElementById('groxSection').classList.remove('active');
     document.getElementById('findBtn').classList.add('active');
     document.getElementById('listBtn').classList.remove('active');
     document.getElementById('mentorshipBtn').classList.remove('active');
+    document.getElementById('groxBtn').classList.remove('active');
 });
 
 document.getElementById('listBtn').addEventListener('click', () => {
     document.getElementById('listSection').classList.add('active');
     document.getElementById('findSection').classList.remove('active');
     document.getElementById('mentorshipSection').classList.remove('active');
+    document.getElementById('groxSection').classList.remove('active');
     document.getElementById('listBtn').classList.add('active');
     document.getElementById('findBtn').classList.remove('active');
     document.getElementById('mentorshipBtn').classList.remove('active');
+    document.getElementById('groxBtn').classList.remove('active');
 });
 
 document.getElementById('mentorshipBtn').addEventListener('click', () => {
     document.getElementById('mentorshipSection').classList.add('active');
     document.getElementById('findSection').classList.remove('active');
     document.getElementById('listSection').classList.remove('active');
+    document.getElementById('groxSection').classList.remove('active');
     document.getElementById('mentorshipBtn').classList.add('active');
     document.getElementById('findBtn').classList.remove('active');
     document.getElementById('listBtn').classList.remove('active');
+    document.getElementById('groxBtn').classList.remove('active');
+});
+
+document.getElementById('groxBtn').addEventListener('click', () => {
+    document.getElementById('groxSection').classList.add('active');
+    document.getElementById('findSection').classList.remove('active');
+    document.getElementById('listSection').classList.remove('active');
+    document.getElementById('mentorshipSection').classList.remove('active');
+    document.getElementById('groxBtn').classList.add('active');
+    document.getElementById('findBtn').classList.remove('active');
+    document.getElementById('listBtn').classList.remove('active');
+    document.getElementById('mentorshipBtn').classList.remove('active');
+    // Show all grocery stores when section loads
+    displayGroxResults(directory.getBusinesses().filter(b => b.category === 'grocery-stores'));
 });
 
 // Search functionality
@@ -237,6 +284,8 @@ document.getElementById('businessForm').addEventListener('submit', async (e) => 
         email: document.getElementById('email').value,
         address: document.getElementById('address').value,
         city: document.getElementById('city').value,
+        locality: document.getElementById('locality').value || '',
+        state: document.getElementById('state').value || '',
         timestamp: new Date().toISOString()
     };
 
@@ -277,6 +326,18 @@ function updatePreview() {
     const address = document.getElementById('address').value || 'Full address will appear here';
     const city = document.getElementById('city').value || '';
 
+    // Show/hide locality and state fields for grocery stores
+    const localityGroup = document.getElementById('localityGroup');
+    const stateGroup = document.getElementById('stateGroup');
+    if (category === 'grocery-stores') {
+        stateGroup.style.display = 'flex';
+        localityGroup.style.display = 'flex';
+        updateFormLocalityOptions();
+    } else {
+        stateGroup.style.display = 'none';
+        localityGroup.style.display = 'none';
+    }
+
     // Use the shared, robust titleCase helper (handles mixed-case, hyphens, apostrophes)
     document.getElementById('previewName').textContent = titleCase(name);
     document.getElementById('previewCategory').textContent = `${category ? categoryNames[category] : 'Category'}${city ? ' • ' + titleCase(city) : ''}`;
@@ -311,9 +372,34 @@ function updatePreview() {
     }
 }
 
-['businessName','businessCategory','mobile','email','address','city'].forEach(id => {
+function updateFormLocalityOptions() {
+    const state = document.getElementById('state').value;
+    const localitySelect = document.getElementById('locality');
+    
+    localitySelect.innerHTML = '<option value="">Select Locality</option>';
+    
+    if (state && locationData[state]) {
+        localitySelect.disabled = false;
+        const city = Object.keys(locationData[state])[0];
+        if (locationData[state][city]) {
+            locationData[state][city].forEach(locality => {
+                const option = document.createElement('option');
+                option.value = locality.toLowerCase().replace(/\s+/g, '-');
+                option.textContent = locality;
+                localitySelect.appendChild(option);
+            });
+        }
+    } else {
+        localitySelect.disabled = true;
+    }
+}
+
+['businessName','businessCategory','mobile','email','address','city','locality','state'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener('input', updatePreview);
+    if (el) {
+        el.addEventListener('input', updatePreview);
+        if (id === 'state') el.addEventListener('change', updateFormLocalityOptions);
+    }
 });
 
 // Clear form button
@@ -350,6 +436,127 @@ updatePreview();
 
 // Initial load - show all businesses
 displayResults(directory.getBusinesses());
+
+// Grox search functionality
+const locationData = {
+    'uttar-pradesh': {
+        'noida': ['Sector 18', 'Sector 62', 'Sector 15', 'Sector 63', 'Sector 16', 'Sector 37']
+    },
+    'rajasthan': {
+        'jaipur': ['C Scheme', 'Malviya Nagar', 'Vaishali Nagar', 'Mansarovar', 'Jagatpura']
+    },
+    'chhattisgarh': {
+        'raipur': ['Pandri', 'Shankar Nagar', 'Civil Lines', 'Telibandha', 'Devendra Nagar']
+    },
+    'delhi': {
+        'delhi': ['Connaught Place', 'Karol Bagh', 'Lajpat Nagar', 'Rajouri Garden', 'Mayur Vihar']
+    }
+};
+
+function updateCityOptions() {
+    const state = document.getElementById('stateSelect').value;
+    const citySelect = document.getElementById('groxCitySelect');
+    const localitySelect = document.getElementById('localitySelect');
+    
+    citySelect.innerHTML = '<option value="">Select City</option>';
+    localitySelect.innerHTML = '<option value="">Select Locality</option>';
+    
+    if (state && locationData[state]) {
+        citySelect.disabled = false;
+        Object.keys(locationData[state]).forEach(city => {
+            const option = document.createElement('option');
+            option.value = city;
+            option.textContent = titleCase(city);
+            citySelect.appendChild(option);
+        });
+    } else {
+        citySelect.disabled = true;
+        localitySelect.disabled = true;
+    }
+}
+
+function updateLocalityOptions() {
+    const state = document.getElementById('stateSelect').value;
+    const city = document.getElementById('groxCitySelect').value;
+    const localitySelect = document.getElementById('localitySelect');
+    
+    localitySelect.innerHTML = '<option value="">Select Locality</option>';
+    
+    if (state && city && locationData[state] && locationData[state][city]) {
+        localitySelect.disabled = false;
+        locationData[state][city].forEach(locality => {
+            const option = document.createElement('option');
+            option.value = locality.toLowerCase().replace(/\s+/g, '-');
+            option.textContent = locality;
+            localitySelect.appendChild(option);
+        });
+    } else {
+        localitySelect.disabled = true;
+    }
+}
+
+function searchGroxStores() {
+    const state = document.getElementById('stateSelect').value;
+    const city = document.getElementById('groxCitySelect').value;
+    const locality = document.getElementById('localitySelect').value;
+    
+    let stores = directory.getBusinesses().filter(b => b.category === 'grocery-stores');
+    
+    // If no filters selected, show all grocery stores
+    if (!state && !city && !locality) {
+        displayGroxResults(stores);
+        return;
+    }
+    
+    if (state) {
+        stores = stores.filter(s => s.state && s.state.toLowerCase().replace(/\s+/g, '-') === state);
+    }
+    
+    if (city) {
+        stores = stores.filter(s => s.city.toLowerCase().replace(/\s+/g, '-') === city);
+    }
+    
+    if (locality) {
+        stores = stores.filter(s => s.locality && s.locality.toLowerCase().replace(/\s+/g, '-') === locality);
+    }
+    
+    displayGroxResults(stores);
+}
+
+function displayGroxResults(stores) {
+    const container = document.getElementById('groxResults');
+    
+    if (stores.length === 0) {
+        container.innerHTML = '<p style="text-align: center; color: #6b7280; font-size: 1.1rem;">No grocery stores found. Try different search criteria.</p>';
+        return;
+    }
+    
+    container.innerHTML = stores.map(store => `
+        <div class="business-card">
+            <div class="business-name">${titleCase(store.name)}</div>
+            <div class="business-category">${categoryNames[store.category]} • ${titleCase(store.locality ? store.locality.replace(/-/g, ' ') : store.city)}, ${titleCase(store.state ? store.state.replace(/-/g, ' ') : store.city)}</div>
+            <div class="contact-info">
+                <div class="contact-item" style="background: rgba(16, 185, 129, 0.1); border-radius: 8px; padding: 0.75rem; margin-bottom: 0.5rem;">
+                    <i class="fas fa-phone" style="color: #10b981;"></i>
+                    <span style="font-weight: 600; color: #10b981;">Call to Order: ${store.mobile.substring(0, 7)}xxxxx</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>${store.address}</span>
+                </div>
+                ${store.products ? `<div class="contact-item" style="margin-top: 0.5rem;">
+                    <i class="fas fa-shopping-cart" style="color: #667eea;"></i>
+                    <span><strong>Available:</strong> ${store.products.join(', ')}</span>
+                </div>` : ''}
+            </div>
+        </div>
+    `).join('');
+}
+
+// Grox search event listeners
+document.getElementById('stateSelect').addEventListener('change', updateCityOptions);
+document.getElementById('groxCitySelect').addEventListener('change', updateLocalityOptions);
+document.getElementById('groxSearchBtn').addEventListener('click', searchGroxStores);
 
 // Admin function to export current businesses
 function exportCurrentBusinesses() {

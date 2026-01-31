@@ -37,6 +37,10 @@
             min-height: 100vh;
         }
         
+        #groxSection {
+            min-height: 100vh;
+        }
+        
         .mentors-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1134,6 +1138,9 @@
                 <button id="mentorshipBtn" class="nav-btn">
                     <i class="fas fa-user-graduate"></i> Mentorship
                 </button>
+                <button id="groxBtn" class="nav-btn">
+                    <i class="fas fa-shopping-basket"></i> Grox
+                </button>
             </div>
         </div>
     </nav>
@@ -1157,6 +1164,7 @@
                         <option value="car-bike-dealers">Car/Bike Dealers</option>
                         <option value="car-workshops">Car Workshops</option>
                         <option value="rental-agencies">Rental Agencies</option>
+                        <option value="grocery-stores">Grocery Stores</option>
                     </select>
                     <button id="searchBtn" class="search-btn">
                         <i class="fas fa-search"></i> Search
@@ -1206,6 +1214,13 @@
                     </div>
                     <h3>Rental Agencies</h3>
                     <p>Self-drive car and bike rentals</p>
+                </div>
+                <div class="category-card" data-category="grocery-stores">
+                    <div class="category-icon">
+                        <i class="fas fa-shopping-basket"></i>
+                    </div>
+                    <h3>Grocery Stores</h3>
+                    <p>Local kirana and grocery stores</p>
                 </div>
             </div>
 
@@ -1313,6 +1328,7 @@
                                     <option value="car-bike-dealers">Car/Bike Dealer</option>
                                     <option value="car-workshops">Car Workshop</option>
                                     <option value="rental-agencies">Rental Agency</option>
+                                    <option value="grocery-stores">Grocery Store</option>
                                 </select>
                             </div>
 
@@ -1334,6 +1350,24 @@
                             <div class="form-group">
                                 <label for="city">City *</label>
                                 <input type="text" id="city" required placeholder="e.g. Mumbai">
+                            </div>
+
+                            <div class="form-group" id="stateGroup" style="display: none;">
+                                <label for="state">State</label>
+                                <select id="state">
+                                    <option value="">Select State</option>
+                                    <option value="uttar-pradesh">Uttar Pradesh</option>
+                                    <option value="rajasthan">Rajasthan</option>
+                                    <option value="chhattisgarh">Chhattisgarh</option>
+                                    <option value="delhi">Delhi</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" id="localityGroup" style="display: none;">
+                                <label for="locality">Locality</label>
+                                <select id="locality" disabled>
+                                    <option value="">Select Locality</option>
+                                </select>
                             </div>
 
                             <div class="submit-row">
@@ -1445,6 +1479,37 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Grox Section -->
+        <section id="groxSection" class="section">
+            <div class="hero">
+                <h1>Grox - Grocery Stores</h1>
+                <p>Find local kirana and grocery stores for phone orders</p>
+            </div>
+
+            <div class="search-section">
+                <div class="search-form">
+                    <select id="stateSelect" class="category-select">
+                        <option value="">Select State</option>
+                        <option value="uttar-pradesh">Uttar Pradesh</option>
+                        <option value="rajasthan">Rajasthan</option>
+                        <option value="chhattisgarh">Chhattisgarh</option>
+                        <option value="delhi">Delhi</option>
+                    </select>
+                    <select id="groxCitySelect" class="category-select" disabled>
+                        <option value="">Select City</option>
+                    </select>
+                    <select id="localitySelect" class="category-select" disabled>
+                        <option value="">Select Locality</option>
+                    </select>
+                    <button id="groxSearchBtn" class="search-btn">
+                        <i class="fas fa-search"></i> Find Stores
+                    </button>
+                </div>
+            </div>
+
+            <div id="groxResults" class="results-container"></div>
         </section>
     </div>
 
