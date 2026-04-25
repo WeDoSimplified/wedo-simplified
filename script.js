@@ -162,33 +162,18 @@ const directory = new BusinessDirectory();
 document.getElementById('findBtn').addEventListener('click', () => {
     document.getElementById('findSection').classList.add('active');
     document.getElementById('listSection').classList.remove('active');
-    document.getElementById('mentorshipSection').classList.remove('active');
     document.getElementById('groxSection').classList.remove('active');
     document.getElementById('findBtn').classList.add('active');
     document.getElementById('listBtn').classList.remove('active');
-    document.getElementById('mentorshipBtn').classList.remove('active');
     document.getElementById('groxBtn').classList.remove('active');
 });
 
 document.getElementById('listBtn').addEventListener('click', () => {
     document.getElementById('listSection').classList.add('active');
     document.getElementById('findSection').classList.remove('active');
-    document.getElementById('mentorshipSection').classList.remove('active');
     document.getElementById('groxSection').classList.remove('active');
     document.getElementById('listBtn').classList.add('active');
     document.getElementById('findBtn').classList.remove('active');
-    document.getElementById('mentorshipBtn').classList.remove('active');
-    document.getElementById('groxBtn').classList.remove('active');
-});
-
-document.getElementById('mentorshipBtn').addEventListener('click', () => {
-    document.getElementById('mentorshipSection').classList.add('active');
-    document.getElementById('findSection').classList.remove('active');
-    document.getElementById('listSection').classList.remove('active');
-    document.getElementById('groxSection').classList.remove('active');
-    document.getElementById('mentorshipBtn').classList.add('active');
-    document.getElementById('findBtn').classList.remove('active');
-    document.getElementById('listBtn').classList.remove('active');
     document.getElementById('groxBtn').classList.remove('active');
 });
 
@@ -196,11 +181,9 @@ document.getElementById('groxBtn').addEventListener('click', () => {
     document.getElementById('groxSection').classList.add('active');
     document.getElementById('findSection').classList.remove('active');
     document.getElementById('listSection').classList.remove('active');
-    document.getElementById('mentorshipSection').classList.remove('active');
     document.getElementById('groxBtn').classList.add('active');
     document.getElementById('findBtn').classList.remove('active');
     document.getElementById('listBtn').classList.remove('active');
-    document.getElementById('mentorshipBtn').classList.remove('active');
     // Show all grocery stores when section loads
     displayGroxResults(directory.getBusinesses().filter(b => b.category === 'grocery-stores'));
 });
